@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: #Dictionary Crashloopbackoff pod
+  name: clbf
+spec: # Dictionary
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clbfpod
+  template:  
+    metadata: # Dictionary
+      name: clbfpod
+      labels: # Dictionary
+        app: clbfpod  # Key value paids
+    spec:
+      containers: # List
+        - name: clbfcontainer
+          image: stratus1/ubuntush:crashloopbackoff
+      nodeSelector:
+        kubernetes.io/os: linux
+    
