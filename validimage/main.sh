@@ -1,8 +1,9 @@
 #!/bin/bash
 i=0
-while [ $i -le 5 ]
+while $1
 do 
+ echo "Press [CTRL+C] to stop.."
  echo "My variable value=$i"
- sleep 2
+ sleep 5
  ((++i))
 done
