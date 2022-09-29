@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment 
-metadata: #Dictionary Crashloopbackoff pod
-  name: validpod
+metadata: #Dictionary ImagePullBackOff pod
+  name: ipbf
 spec: # Dictionary
   replicas: 1
   selector:
     matchLabels:
-      app: validpod
+      app: ipbfpod
   template:  
     metadata: # Dictionary
-      name: validpod
+      name: ipbfpod
       labels: # Dictionary
-        app: validpod  # Key value paids
+        app: ipbfpod  # Key value paids
     spec:
       containers: # List
-        - name: validcontainer
-          image: stratus1/ubuntush:validimage
+        - name: ipbfpodcontainer
+          image: stratus1/unavailableimage:na
       nodeSelector:
         kubernetes.io/os: linux
     
