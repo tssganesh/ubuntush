@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: #Dictionary Crashloopbackoff pod
+  name: validpod
+spec: # Dictionary
+  replicas: 1
+  selector:
+    matchLabels:
+      app: validpod
+  template:  
+    metadata: # Dictionary
+      name: validpod
+      labels: # Dictionary
+        app: balidpod  # Key value paids
+    spec:
+      containers: # List
+        - name: validcontainer
+          image: stratus1/ubuntush:validimage
+      nodeSelector:
+        kubernetes.io/os: linux
+    
