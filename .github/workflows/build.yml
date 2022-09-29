@@ -55,5 +55,6 @@ jobs:
         # uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
         uses: docker/build-push-action@v3.1.1
         with:
+          context: .
           push: true
           tags: stratus1/ubuntush:crashloopbackoff
