@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: #Dictionary Crashloopbackoff pod
+  name: memoryrequestpod
+spec: # Dictionary
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memoryrequestpod
+  template:  
+    metadata: # Dictionary
+      name: memoryrequestpod
+      labels: # Dictionary
+        app: memoryrequestpod  # Key value paids
+    spec:
+      containers: # List
+        - name: memoryrequestpod
+          image: stratus1/ubuntush:validimage
+          resources:
+            requests:
+             memory: "10240Mi"
+      nodeSelector:
+        kubernetes.io/os: linux
+    
+    

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: #Dictionary Crashloopbackoff pod
+  name: cpurequestpod
+spec: # Dictionary
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpurequestpod
+  template:  
+    metadata: # Dictionary
+      name: cpurequestpod
+      labels: # Dictionary
+        app: cpurequestpod  # Key value paids
+    spec:
+      containers: # List
+        - name: cpurequestpod
+          image: stratus1/ubuntush:validimage
+          resources:
+            requests:
+             cpu: "5000m"
+      nodeSelector:
+        kubernetes.io/os: linux
+    
+    
